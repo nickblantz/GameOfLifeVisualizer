@@ -1,20 +1,20 @@
 * {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .populated {
-	background-color: black;
+  background-color: black;
 }
 
 body {
-	background-color: red;
+  background-color: red;
 }
 
 .running_color {
-	background-color: green;
+  background-color: green;
 }
 
 #board_of_life {
-	background-color: white;
+  background-color: white;
 }

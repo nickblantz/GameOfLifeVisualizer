@@ -1,5 +1,5 @@
 const tileSize     = 50,
-      boardTiles   = []
+      boardTiles   = [],
       tileRegex    = /tile-(\d+)-(\d+)/;
 var   screenWidth  =  0,
       screenHeight =  0,
@@ -11,20 +11,16 @@ var   screenWidth  =  0,
 
 function toggleLife() {
     this.classList.toggle('populated');
-    
     var tileCoordinates = tileRegex.exec(this.id);
     activeBoard[tileCoordinates[1]][tileCoordinates[2]] = !activeBoard[tileCoordinates[1]][tileCoordinates[2]];
-    
     console.log(`tile-${tileCoordinates[1]}-${tileCoordinates[2]} population changed`);
 }
 
 function generateTile(y, x) {
     var tile = document.createElement('div');
-    
     tile.id = 'tile-' + y + '-' + x;
     tile.style.cssText = 'position: relative; display: inline-block; height: ' + tileSize + 'px; width: ' + tileSize + 'px;';
     tile.addEventListener('click', toggleLife);
-    
     return tile;
 }
 
@@ -74,7 +70,6 @@ function toggleActiveBoard() {
     var temp = activeBoard;
     activeBoard = inactiveBoard;
     inactiveBoard = temp;
-    
     for (var y = 0; y < boardTiles.length; y++) {
         for (var x = 0; x < boardTiles[y].length; x++) {
             if (boardTiles[y][x].classList.contains('populated') ^ activeBoard[y][x]) {
